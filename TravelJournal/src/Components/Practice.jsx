@@ -1,19 +1,27 @@
-import React from 'react'
+import React from 'react';
 
 function Practice() {
-    const pokemon = ["bulbasaur","charmander","squirtle"];
+    function handleClick() {
+        console.log("ANKIT TIWARI");
+    }
 
-    const paragra = pokemon.map((mon) => {
-        return <p>{mon}</p>
-    });
-    
-    console.log(paragra);
-    
     return (
-        <div>
-           
-        </div>
+        <main>
+            <div className='flex justify-center items-center h-72 w-72 ml-56 '>
+                <img 
+                    src="https://dharmapublication.com/wp-content/uploads/2024/01/sumit-biswas-highresscreenshot00021-1024x876.jpg" 
+                    alt="Example" 
+                />
+            </div>
+            <button 
+                onClick={handleClick} 
+                className='text-black bg-red-700 ml-80 rounded-md'>
+                Click Me
+            </button>
+        </main>
     );
 }
 
-export default Practice
+export default Practice;
+
+

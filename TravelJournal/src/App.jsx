@@ -1,15 +1,11 @@
 import React from 'react'
-import Header from './Components/Header'
-import Entry from './Components/Entry'
+import Practice from './Components/Practice'
 
 function App() {
   
   return (
   <>
-  <Entry/>
-  <Header />
-  <main>
-  </main>
+  <Practice/>
   </>
   )
 }
