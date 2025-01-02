@@ -1,21 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+
 function IngredientInput() {
-  const ingredients = ["Chickens", "Oregano", "Tomatoes"]
-  console.log(ingredients);
-  const ingredientListItems = ingredients.map(ingredient => (  
-    <li key={ingredient}>{ingredient}</li>
-      ))
-      function FormSubmit (event) {
-        event.preventDefault()
-         console.log("Form submitted") 
-         const formData = new FormData(event.currentTarget)
-         const newIngredient = formData.get("ingredient")
-         ingredients.push(newIngredient)
-         console.log(ingredients)
-      }  
+  const [ingredients, setIngredients] = useState([]);
+  const ingredientListItems = ingredients.map(ingredient => <li key={ingredient}>{ingredient}</li>);
+
+  function addIngredient(event) {
+    event.preventDefault(); 
+    const formData = new FormData(event.target);
+    const newIngredient = formData.get("ingredient");
+    setIngredients(prevIngredients => [...prevIngredients, newIngredient]);
+  }
+
   return (
     <div className='mt-10 flex justify-left ml-7'>
-      <form onSubmit={FormSubmit}>
+      <form onSubmit={addIngredient} className='add-Ingredient-form'>
         <input 
           className='rounded-sm w-96 h-7 text-black' 
           type="text" 
@@ -28,11 +26,12 @@ function IngredientInput() {
             +Add ingredient
           </button>
         </div>
-        <ul className='text-white'>
-           {ingredientListItems}  
+        <ul className='text-white' aria-live='polite'>
+          {ingredientListItems}
         </ul>
       </form>
     </div>
-  )
+  );
 }
-export default IngredientInput
+
+export default IngredientInput;
