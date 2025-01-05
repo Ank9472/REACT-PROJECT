@@ -1,48 +1,34 @@
 import React from 'react';
+import Star from './Star';
+
 function Identity() {
     const [contact, setContact] = React.useState({
         firstName: "John",
         lastName: "Doe",
         phone: "+1 (212) 555-1212",
         email: "itsmyrealname@example.com",
-        isFavorite: true
+        isFavorite: false
     });
-    let startIcon = contact.isFavorite ? starFilled : starEmpty
-    function toggleFavorite() {
-         setContact(prevcontact => ({
-        ...prevcontact  , 
-            isFavorite: !prevcontact.isFavorite
-        }  ) 
-        ) 
-    }
+      
     return (
-        <main>
-            <article className="card">
+        <main className="flex items-center justify-center h-screen bg-sky-950 text-black">
+            <article className="card bg-white shadow-lg rounded-lg overflow-hidden p-4">
                 <img
-                    src=""
+                    src="./public/user.png"
                     alt="User profile picture of John Doe"
+                    className="w-24 h-24 rounded-full mx-auto"
                 />
-                <div className="button">
-                    <button
-                        onClick={toggleFavorite}
-                        aria-pressed={contact.isFavorite}
-                        aria-label={contact.isFavorite}
-                        className={contact.isFavorite ?"Remove from favorites" : "Add to Favorites" }
-                    >
-                        <img
-                            src={startIcon}
-                            alt= {contact.isFavorite ? "Start Icon filled" :"star Icon Empty" }
-                            className="favorite"
-                        />
-                  {setContact}  </button>
-                </div>
-                <h2 className="name">
-                    {contact.firstName} {contact.lastName}
+                <div> 
+                <Star isFilled={contact.isFavorite}/>
+                <h2 className="name text-center text-xl font-bold mt-4">
+                 {contact.firstName} {contact.lastName}
                 </h2>
-                <p className="contact">{contact.phone}</p>
-                <p>{contact.email}</p>
+                <p className="contact text-center text-gray-600">{contact.phone}</p>
+                <p className="text-center text-gray-600">{contact.email}</p>
+                </div>
             </article>
         </main>
     );
 }
+
 export default Identity;

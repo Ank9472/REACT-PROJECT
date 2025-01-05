@@ -1,12 +1,12 @@
 import React from 'react'
-import Message from './Message'
-import './App.css'
+import Colour from '../Pads/Colour'
+
 function App() {
-  return (
-  <div>
-  <Message/> 
-  </div>
-  )
+    return (
+        <div>
+          <Colour/>
+        </div>
+    )
 }
 
 export default App
